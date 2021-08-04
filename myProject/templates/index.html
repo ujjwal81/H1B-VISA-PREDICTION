@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visa Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <style>
+      ::-webkit-scrollbar {
+        width: 13px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey; 
+        border-radius: 10px;
+      }
+      
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: rgb(185, 179, 179); 
+        border-radius: 10px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #4d4a4a; 
+      }
+    </style>
+</head>
+<body>
+    <div class="d-flex align-items-center" style="height: 100vh;width: 100%;background-image: url('https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700422135.jpg');background-size: cover;background-repeat: no-repeat;">
+    <div class="container text-center">
+        <div class="row justify-content-md-center">
+            <div class="d-none d-md-block col-md-1">
+            </div>
+            <div class="d-none d-md-block col-md-2" style="background-image: url('https://www.mmppicture.co.in/wp-content/uploads/2019/04/Book-and-Flying-Paper-Free-Stock-Background-Image.jpg');
+            background-size: cover;background-repeat: no-repeat;box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"></div>
+            
+            <div class="col-md-auto" style="background-color:white;box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;;margin-left: 0%;">
+                <h2 style="text-align: center;margin-bottom: 6px;padding-top: 8px;font-style: italic;text-shadow: 2px 2px #cbcfcd;color: #669999;">H1B-Visa Prediction<hr/></h2>
+                <form class="form-horizontal" action="{{ url_for('y_predict')}}"method="post">
+                    <div class="form-group">
+                    <label style="font-weight: bold;" style="font-weight: bold;">Job Duration:</label>
+                    <div>
+                          <select class="form-control" name="FULL_TIME_POSITION="required">
+                              <option value="Full Time">Full Time</option>
+                              <option value="Part Time">Part Time</option>
+                        </select>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label style="font-weight: bold;">Occupation field for Employment:</label>
+                    <div>
+                          <select class="form-control example" name="SOC_N"required>
+                              <option value="Administrative">Administrative</option>
+                              <option value="Agriculture">Agriculture</option>
+                              <option value="Audit">Audit</option>
+                              <option value="Database">Database</option>
+                              <option value="Education">Education</option>
+                              <option value="Estate">Estate</option>
+                              <option value="Executives">Executives</option>
+                              <option value="Finance">Finance</option>
+                              <option value="H.R">H.R</option>
+                              <option value="IT">IT</option>
+                              <option value="Manager">Manager</option>
+                              <option value="Mechanical">Mechanical</option>
+                              <option value="Medical">Medical</option>
+                              <option value="P.R">P.R</option>
+                              <option value="Sales & Market">Sales & Market</option>
+                              <option value="others">Others</option>
+                        </select>
+                    </div>
+                  </div>
+                
+                  <div class="form-group">
+                    <label style="font-weight: bold;">Prevailing Wage:</label>
+                    <div>
+                          <input class="form-control" type="number" name="PREVAILING_WAGE" placeholder="Enter your wage" required="required" />
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label style="font-weight: bold;">Year of Application:</label>
+                    <div>
+                          <input class="form-control" type="number" name="YEAR" placeholder=" Enter Application Year" required="required" />
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div style="display: flex;justify-content: center;align-items: center;flex-direction: row;">
+                        <button type="submit" class="btn btn-success" style="margin: 10px;">Submit</button>
+                        <button class="btn btn-danger" style="margin: 10px;"><a href="/" style="color: white;">Go Back</a></button>
+                    </div>
+                  </div>
+                </form>
+                <h4 style="text-align: center;">Prediction: <span style="color:red;"> {{ prediction_text }}</span></h4>
+            </div>
+            <div class="d-none d-md-block col-md-1">
+            </div>
+          </div>
+      </div>
+    </div>
+</body>
+</html>
